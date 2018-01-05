@@ -10,5 +10,8 @@ npm i -S react-router-dom
 # devDependencies
 npm i -D nock redux-mock-store redux-logger
 
+# Install All Depadencies
+npm i
+
 # Node Commander
 node command install
