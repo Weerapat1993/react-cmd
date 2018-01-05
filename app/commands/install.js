@@ -6,10 +6,8 @@ const Install = (cmd, env) => {
   const file = new MakeFile(cmd, env)
   
   file
-    .createDirectory('/assets')
-    .createDirectory('/assets/images')
-    .createDirectory('/components')
-    .createFile('/components/index.js', '// ./src/components/index.js')
+    .copyFolderTemplate('/assets', '/assets')
+    .copyFolderTemplate('/components', '/components')
     .copyFolderTemplate('/config', '/config')
     .copyFolderTemplate('/redux', '/redux')
     .createDirectory('/routes')
