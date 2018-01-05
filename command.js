@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
 const program = require('commander')
+const packageJson = require('./package.json')
 const { MakeRedux, Install } = require('./app')
 let cmdValue
 let envValue
 
 program
-  .version('0.1.0')
+  .version(packageJson.version)
   .arguments('<cmd> [env]')
   .action((cmd, env) => {
      cmdValue = cmd
