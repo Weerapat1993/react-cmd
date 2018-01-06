@@ -1,4 +1,3 @@
-const Case = require('case')
 const { MakeFile } = require('../utils')
 
 // Make Command

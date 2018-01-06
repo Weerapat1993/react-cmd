@@ -2,7 +2,11 @@
 
 const program = require('commander')
 const packageJson = require('./package.json')
-const { MakeRedux, Install } = require('./app')
+const {
+  Install,
+  MakeRedux,
+  DocStore,
+} = require('./app')
 let cmdValue
 let envValue
 
@@ -36,6 +40,9 @@ if (typeof cmdValue === 'undefined') {
 switch(cmdValue) {
   case 'make:redux':
     MakeRedux(cmdValue, envValue)
+    break
+  case 'doc:store':
+    DocStore(cmdValue, envValue)
     break
   case 'install':
     Install(cmdValue, envValue)
