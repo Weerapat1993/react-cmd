@@ -6,6 +6,7 @@ const {
   Install,
   MakeRedux,
 } = require('./app')
+const CMD_NAME = 'cmd'
 let cmdValue
 let envValue
 
@@ -24,8 +25,10 @@ program.on('--help', function(){
   console.log('');
   console.log('  Examples:');
   console.log('');
-  console.log('    $ node command install');
-  console.log('    $ node command make:redux [name]');
+  console.log(`    node ${CMD_NAME} install`);
+  console.log(`    node ${CMD_NAME} make:redux [name]`);
+  console.log(`    node ${CMD_NAME} make:component [name]`);
+  console.log(`    node ${CMD_NAME} make:feature [name]`);
   console.log('');
 });
 
