@@ -5,8 +5,15 @@ class About extends Component {
   render() {
     return (
       <div>
-        <h1>Hello React - About</h1>
-        <h2><Link to='/'>Home</Link></h2>
+        <h1>Hello React</h1>
+        <h2>About</h2> 
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/dashboard">Dashboard</Link></li>
+          <li><Link to="/not-found">Not Found</Link></li>
+        </ul>
       </div>
     )
   }

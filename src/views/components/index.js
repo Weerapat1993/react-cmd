@@ -1,1 +1,1 @@
-// ./src/components/index.js
+export { Error404 } from './Errors'
