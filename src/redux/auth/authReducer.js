@@ -7,6 +7,12 @@ export const initalState = {
   error: false,
 }
 
+/**
+ * Auth Reducer
+ * @param {*} state 
+ * @param {{ type: string, data: [], error: string }} action 
+ * @return {initalState}
+ */
 export const authReducer = (state = initalState, action) => {
   switch(action.type) {
     case AUTH.REQUEST:

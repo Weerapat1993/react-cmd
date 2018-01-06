@@ -1,15 +1,17 @@
-/**
- * Store Reducer -
- * @typedef {Object} Store
- * @property {{ isFetching: boolean, data: [], error: string }} auth
- * @property {{ isFetching: boolean, data: [], error: string }} user
- * @property {{ isFetching: boolean, data: [], error: string }} role
- 
- */
+import { rootReducers } from '../../redux/rootReducers'
+
+const action = { type: 'ETC' }
+const { auth, user, role } = rootReducers
+
+export const dataStore = {
+  auth: auth(undefined, action),
+  user: user(undefined, action),
+  role: role(undefined, action),
+}
 
 /**
  * State in Store
- * @param {Store} state
- * @return {Store}
+ * @param {dataStore} state
+ * @return {dataStore}
  */
 export const store = (state) => state

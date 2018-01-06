@@ -6,6 +6,12 @@ export const initalState = {
   error: false
 }
 
+/**
+ * Auth Reducer
+ * @param {*} state 
+ * @param {{ type: string, data: [], error: string }} action 
+ * @return {initalState}
+ */
 export const roleReducer = (state = initalState, action) => {
   switch(action.type) {
     case FETCH_ROLE.REQUEST:

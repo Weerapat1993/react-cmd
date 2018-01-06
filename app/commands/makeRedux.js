@@ -56,6 +56,12 @@ const initialState = {
   error: null
 }
 
+/**
+ * ${envPascalCase} Reducer
+ * @param {*} state 
+ * @param {{ type: string, data: [], error: string }} action 
+ * @return {initalState}
+ */
 export const ${envCamelCase}Reducer = (state, action) => {
   switch(action.type) {
     case FETCH_${envUpperCase}.REQUEST:

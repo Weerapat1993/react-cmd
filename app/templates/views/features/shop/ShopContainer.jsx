@@ -38,7 +38,7 @@ export class ShopContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  data: store(state).user
+  data: store(state).user.data
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
