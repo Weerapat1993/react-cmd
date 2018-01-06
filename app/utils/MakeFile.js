@@ -17,7 +17,7 @@ class MakeFile extends Log {
     if (!fs.existsSync(dir)){
       fs.mkdirSync(dir)
       if(!hideLog) {
-        this.success(`create Directory ./src${pathName}`)
+        this.success(`create directory ./src${pathName}`)
       }
     }
     return this
@@ -28,7 +28,7 @@ class MakeFile extends Log {
     const dir = srcPath(pathName)
     if (!fs.existsSync(dir)) {
       fs.writeFileSync(dir, text)
-      this.success(`create File ./src${pathName} success.`)
+      this.success(`create file ./src${pathName} success.`)
     } else {
       this.error(`file ./src${pathName} is exists.`)
     }
@@ -44,6 +44,18 @@ class MakeFile extends Log {
       this.success(`copy folder ./app/templates${templateName} to ./src${pathName} success.`)
     } else {
       this.error(`folder ./src${pathName} is exists.`)
+    }
+    return this
+  }
+
+  copyFile(templateName, pathName) {
+    const dirTemplate = templatePath(templateName)
+    const dirSrc = srcPath(pathName)
+    if (!fs.existsSync(dirSrc)) {
+      fs.copyFileSync(dirTemplate, dirSrc)
+      this.success(`copy file ./src${pathName} success.`)
+    } else {
+      this.error(`file ./src${pathName} is exists.`)
     }
     return this
   }
