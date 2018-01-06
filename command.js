@@ -5,7 +5,6 @@ const packageJson = require('./package.json')
 const {
   Install,
   MakeRedux,
-  DocStore,
 } = require('./app')
 let cmdValue
 let envValue
@@ -25,8 +24,8 @@ program.on('--help', function(){
   console.log('');
   console.log('  Examples:');
   console.log('');
-  console.log('    $ custom-help --help');
-  console.log('    $ custom-help -h');
+  console.log('    $ node command install');
+  console.log('    $ node command make:redux [name]');
   console.log('');
 });
 
@@ -40,9 +39,6 @@ if (typeof cmdValue === 'undefined') {
 switch(cmdValue) {
   case 'make:redux':
     MakeRedux(cmdValue, envValue)
-    break
-  case 'doc:store':
-    DocStore(cmdValue, envValue)
     break
   case 'install':
     Install(cmdValue, envValue)
