@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { HashRouter as Router } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Router } from './config/path'
 import { authActions } from '../../redux/auth'
 
 class RouterMiddleware extends Component {
