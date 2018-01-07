@@ -1,71 +1,31 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { authActions } from '../../../redux/auth'
-import { store } from '../../../utils'
-import I18n from '../../../lang'
+import RegisterForm from '../../forms/RegisterForm'
 
-const textCommon = I18n.t().common
-
-class RegisterPage extends Component {
-  static propTypes = {
-    auth: PropTypes.shape({
-      isAuth: PropTypes.bool,
-      isLoading: PropTypes.bool,
-      user: PropTypes.oneOfType([
-        PropTypes.bool,
-        PropTypes.object,
-      ]),
-      error: PropTypes.string,
-    }),
-    authActions: PropTypes.shape({
-      authLogout: PropTypes.func.isRequired,
-    })
+class RegisterPage extends React.Component {
+  handleSubmit(values, dispatch, props) {
+    console.log(values)
+    alert(`Email: ${values.email}\nPassword: ${values.password}`)
   }
-
-  constructor() {
-    super()
-
-    this.handleLogout = this.handleLogout.bind(this)
-  }
-
-  handleLogout() {
-    this.props.authActions.authLogout()
-  }
-
-  render() {
+  render () {
     const { auth } = this.props
     return (
       <div>
-        <h1>Hello React</h1>
-        <h2>Register Page</h2> 
-        <ul>
-          <li><Link to="/">{textCommon.home}</Link></li>
-          <li><Link to="/about">{textCommon.about}</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/not-found">Not Found</Link></li>
-        </ul>
         {
-          !auth.isAuth ? (
-            <ul>
-              <li><Link to="/login">{textCommon.login}</Link></li>
-              <li><Link to="/register">{textCommon.register}</Link></li>
-            </ul>
-          ) : (
-            <ul>
-              <li><a onClick={this.handleLogout}>{textCommon.logout}</a></li>
-            </ul>
-          )
+          (auth.isAuth) ?
+          <h1>Register Successful</h1>
+          : <RegisterForm onSubmit={this.handleSubmit} loading={auth.isLoading} isAuth={auth.isAuth} />
         }
       </div>
+      
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  auth: store(state).auth
+  auth: state.auth
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -73,6 +33,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps, 
   mapDispatchToProps,
 )(RegisterPage)
