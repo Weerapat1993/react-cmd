@@ -1,11 +1,13 @@
-import Home from './Home'
-import About from './About'
-import Login from './Login'
-import Dashboard from './Dashboard'
+import HomePage from './home'
+import AboutPage from './about'
+import LoginPage from './login'
+import DashboardPage from './dashboard'
+import RegisterPage from './register'
 
 export {
-  Home,
-  About,
-  Login,
-  Dashboard,
+  HomePage,
+  AboutPage,
+  LoginPage,
+  RegisterPage,
+  DashboardPage,
 }

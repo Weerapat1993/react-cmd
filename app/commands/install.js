@@ -14,6 +14,7 @@ const Install = (cmd, env = 'material-ui') => {
     .copyFolderTemplate('/redux', '/redux')
     .copyFolderTemplate('/utils', '/utils')
     .copyFolderTemplate('/views', '/views')
+    .copyFolderTemplate('/lang', '/lang')
     .createFile('/index.js', Theme)
     .copyFile('/registerServiceWorker.js', '/registerServiceWorker.js')
 }

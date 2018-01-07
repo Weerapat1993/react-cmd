@@ -8,6 +8,7 @@ const {
   MakeRedux,
   MakeComponent,
   MakeFeature,
+  MakePage,
 } = require('./app')
 
 let cmdValue
@@ -25,15 +26,16 @@ program
 // node's emit() is immediate
 
 program.on('--help', function(){
-  console.log('');
-  console.log('  Examples:');
-  console.log('');
-  console.log(`    node ${CMD_NAME} install`);
-  console.log(`    node ${CMD_NAME} make:redux [name]`);
-  console.log(`    node ${CMD_NAME} make:component [name]`);
-  console.log(`    node ${CMD_NAME} make:feature [name]`);
-  console.log('');
-});
+  console.log('')
+  console.log('  Examples:')
+  console.log('')
+  console.log(`    node ${CMD_NAME} install`)
+  console.log(`    node ${CMD_NAME} make:redux [name]`)
+  console.log(`    node ${CMD_NAME} make:component [name]`)
+  console.log(`    node ${CMD_NAME} make:feature [name]`)
+  console.log(`    node ${CMD_NAME} make:page [name]`)
+  console.log('')
+})
 
 program.parse(process.argv)
 
@@ -51,6 +53,9 @@ switch(cmdValue) {
     break
   case 'make:feature':
     MakeFeature(cmdValue, envValue)
+    break
+  case 'make:page':
+    MakePage(cmdValue, envValue)
     break
   case 'install':
     Install(cmdValue, envValue)

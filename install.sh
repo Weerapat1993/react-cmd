@@ -17,4 +17,4 @@ npm i -D nock redux-mock-store redux-logger
 npm i
 
 # Node Commander
-node cmd install
+node cmd install material-ui

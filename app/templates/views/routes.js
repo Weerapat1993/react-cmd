@@ -3,22 +3,24 @@ import { Route, Switch } from 'react-router-dom'
 import { PrivateRoute, PublicRoute } from '../utils'
 import { Error404 } from './components'
 import { 
-  Home,
-  About,
-  Login,
-  Dashboard,
+  HomePage,
+  AboutPage,
+  LoginPage,
+  RegisterPage,
+  DashboardPage,
 } from './pages'
 
 export const Routes = ({ isAuth }) => (
   <Switch>
-    <Route exact path='/' component={Home} />
-    <Route path='/about' component={About} />
+    <Route exact path='/' component={HomePage} />
+    <Route path='/about' component={AboutPage} />
 
     {/* Public Route Middleware */}
-    <PublicRoute authed={isAuth} path='/login' component={Login} />
+    <PublicRoute authed={isAuth} path='/login' component={LoginPage} />
+    <PublicRoute authed={isAuth} path='/register' component={RegisterPage} />
 
     {/* Private Route Middleware */}
-    <PrivateRoute authed={isAuth} path='/dashboard' component={Dashboard} />
+    <PrivateRoute authed={isAuth} path='/dashboard' component={DashboardPage} />
 
     {/* Error 404 Not Found */}
     <Route component={Error404} />
