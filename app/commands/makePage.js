@@ -19,15 +19,25 @@ export default ${envPascalCase}Page
 `import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { Aunthentication } from '../../components'
+import { FloatingActionButton } from 'material-ui'
+import { ContentAdd } from 'material-ui/svg-icons'
+import { Aunthentication, AuthPropTypes, PageBase } from '../../components'
 import I18n from '../../../lang'
 
 const textCommon = I18n.t().common
+const styles = {
+  floatingActionButton: {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+  },
+}
 
 const ${envPascalCase}Page = ({ auth, authLogout }) => (
-  <div>
-    <h1>Hello React</h1>
-    <h2>${envPascalCase} Page</h2> 
+  <PageBase title="${envPascalCase} Page" navigation="Home / ${envPascalCase} Page">
     <ul>
       <li><Link to="/">{textCommon.home}</Link></li>
       <li><Link to="/about">{textCommon.about}</Link></li>
@@ -46,22 +56,16 @@ const ${envPascalCase}Page = ({ auth, authLogout }) => (
         </ul>
       )
     }
-  </div>
+    <Link to="/${envKebab}/create" >
+      <FloatingActionButton style={styles.floatingActionButton} primary >
+        <ContentAdd />
+      </FloatingActionButton>
+    </Link>
+  </PageBase>
 )
 
 ${envPascalCase}Page.propTypes = {
-  auth: PropTypes.shape({
-    isAuth: PropTypes.bool,
-    isLoading: PropTypes.bool,
-    user: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.object,
-    ]),
-    error: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.bool,
-    ])
-  }),
+  auth: AuthPropTypes.auth,
   authLogout: PropTypes.func.isRequired,
 }
 

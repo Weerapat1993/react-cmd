@@ -1,14 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FloatingActionButton } from 'material-ui'
+import { ActionHome } from 'material-ui/svg-icons'
 
-const NotFound = ({ location }) => (
-  <center>
-    <h1>404 <small>Sorry, page not found</small></h1>
-    <p>
-      No match for <code>{location.pathname}</code>
-    </p>
-    <Link to='/'>Back to Home</Link>  
-  </center>
+const styles = {
+  floatingActionButton: {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+  },
+}
+
+const Error404 = ({ location }) => (
+  <div>
+    <center>
+      <h1>Sorry, Page not found.</h1>
+      <p>No match for <code>{location.pathname}</code></p>
+    </center>
+    <Link to='/'>
+      <FloatingActionButton secondary style={styles.floatingActionButton}>
+        <ActionHome />
+      </FloatingActionButton>
+    </Link>
+  </div> 
 )
 
-export default NotFound
+export default Error404
