@@ -6,6 +6,10 @@ import { RouterMiddleware } from './utils'
 import configureStore from './redux/store'
 import registerServiceWorker from './registerServiceWorker'
 
+// StyleSheet
+import './views/styles/styles.css'
+import './views/styles/flex.css'
+
 ReactDOM.render(
   <Provider store={configureStore()}>
     <RouterMiddleware Routes={Routes} />

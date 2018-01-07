@@ -22,7 +22,7 @@ When you’re ready to deploy to production, create a minified bundle with npm r
 
 | Command | Description |
 |---------|-------------|
-|`node cmd install`| Install React Starter Package |
+|`node cmd install [theme]`| Install React Starter Package `default` `material-ui` |
 |`node cmd make:redux [name]`| Create File Redux Package |
 |`node cmd make:component [name]`| Create File Component Package |
 |`node cmd make:feature [name]`| Create Folder Feature Package |

@@ -1,4 +1,5 @@
-import React from 'react'
+module.exports = 
+`import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
@@ -26,3 +27,4 @@ ReactDOM.render(
 ,document.getElementById('root'))
 
 registerServiceWorker()
+`
