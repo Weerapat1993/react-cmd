@@ -19,7 +19,6 @@ class RegisterPage extends React.Component {
           : <RegisterForm onSubmit={this.handleSubmit} loading={auth.isLoading} isAuth={auth.isAuth} />
         }
       </div>
-      
     )
   }
 }

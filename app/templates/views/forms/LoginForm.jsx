@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 import { CircularProgress, Paper, RaisedButton, Checkbox, TextField } from 'material-ui'
-import { grey500, white, fullWhite } from 'material-ui/styles/colors'
+import { grey500, fullWhite } from 'material-ui/styles/colors'
 import { loginValidation } from './validation'
 import I18n from '../../lang'
 
@@ -18,24 +17,6 @@ const LoginContainer = styled.div`
   left: 0;
   right: 0;
   margin: auto
-`
-
-const ButtonDiv = styled.div`
-  text-align: center;
-  padding: 10px;
-`
-
-const ButtonSpan = styled.span`
-  margin-left: 5px;
-`
-
-const SocialButtonLink = styled(Link)`
-  background: ${props => props.google ? '#e14441' : '#4f81e9'};
-  color: ${white};
-  padding: 7px;
-  border-radius: 2px;
-  margin: 2px;
-  font-size: 13px;
 `
 
 const PaperStyle = styled(Paper)`
@@ -108,20 +89,6 @@ class LoginForm extends React.Component {
               />
             </div>
           </PaperStyle>
-
-          <ButtonDiv>
-            <p>
-              <Link to='/register'>{textCommon.register}</Link>
-            </p>
-            <SocialButtonLink to="/" facebook >
-              <i className="fa fa-facebook fa-lg"/>
-              <ButtonSpan>Log in with Facebook</ButtonSpan>
-            </SocialButtonLink>
-            <SocialButtonLink to="/" google >
-              <i className="fa fa-google-plus fa-lg"/>
-              <ButtonSpan>Log in with Google</ButtonSpan>
-            </SocialButtonLink>
-          </ButtonDiv>
         </LoginContainer>
       </form>
     );

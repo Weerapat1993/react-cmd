@@ -35,7 +35,6 @@ class LoginPage extends React.Component {
           : <LoginForm onSubmit={this.handleSubmit} loading={auth.isLoading} isAuth={auth.isAuth} />
         }
       </div>
-      
     )
   }
 }
