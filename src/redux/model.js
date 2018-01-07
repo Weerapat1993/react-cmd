@@ -1,6 +1,6 @@
-import Collection from 'array-collection'
+import { ArrayCollection } from '../utils'
 
-const Model = (data, primaryKey) => new Collection(data, primaryKey)
+const Model = (data, primaryKey) => new ArrayCollection(data, primaryKey)
 
 // Models
 export const User = (data) => Model(data, 'id')
