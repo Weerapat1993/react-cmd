@@ -14,4 +14,4 @@ npm i -D nock redux-mock-store redux-logger
 npm i
 
 # Node Commander
-node command install
+node cmd install
