@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import Menu from 'material-ui/svg-icons/navigation/menu'
-import {white} from 'material-ui/styles/colors'
-import { SearchBox } from '../SearchBox'
+import { white } from 'material-ui/styles/colors'
 import BadgeIcon from './BadgeIcon'
 import LinkIcon from './LinkIcon'
 
@@ -25,8 +24,7 @@ import {
   CommunicationVpnKey,
 } from 'material-ui/svg-icons'
 
-class Header extends React.Component {
-
+class Header extends Component {
   render() {
     const {styles, handleChangeRequestNavDrawer, auth, onLogout, navDrawerOpen } = this.props
 
@@ -38,7 +36,7 @@ class Header extends React.Component {
         maxHeight: 57
       },
       menuButton: {
-        marginLeft: 10
+        marginLeft: 15
       },
       iconsRightContainer: {
         marginLeft: 5
@@ -49,9 +47,7 @@ class Header extends React.Component {
         <div>
             <AppBar
               style={{...styles, ...style.appBar}}
-              title={ 
-                !navDrawerOpen && <SearchBox />
-              }
+              title={'Title'}
               iconElementLeft={
                   <IconButton style={style.menuButton} onClick={handleChangeRequestNavDrawer}>
                     <Menu color={white} />

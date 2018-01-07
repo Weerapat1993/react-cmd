@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Aunthentication } from './Aunthentication'
+import { Aunthentication, AuthPropTypes } from './Aunthentication'
 import { Header } from './Header'
 import { LeftDrawer } from './LeftDrawer'
 import withWidth, {LARGE, SMALL} from 'material-ui/utils/withWidth'
@@ -69,18 +69,7 @@ class App extends Component {
 App.propTypes = {
   children: PropTypes.element,
   width: PropTypes.number,
-  auth: PropTypes.shape({
-    isAuth: PropTypes.bool,
-    isLoading: PropTypes.bool,
-    user: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.object,
-    ]),
-    error: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.bool,
-    ])
-  }),
+  auth: AuthPropTypes.auth.isRequired,
   authLogout: PropTypes.func.isRequired,
 }
 
