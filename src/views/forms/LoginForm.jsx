@@ -5,6 +5,9 @@ import { Field, reduxForm } from 'redux-form'
 import { CircularProgress, Paper, RaisedButton, Checkbox, TextField } from 'material-ui'
 import { grey500, white, fullWhite } from 'material-ui/styles/colors'
 import { loginValidation } from './validation'
+import I18n from '../../lang'
+
+const textCommon = I18n.t().common
 
 const LoginContainer = styled.div`
   min-width: 320px;
@@ -85,11 +88,11 @@ class LoginForm extends React.Component {
         <LoginContainer>
           <PaperStyle>
             <h2>Login</h2>
-            <Field name='email' component={renderField} type='email' label='Email' placeholder='Email' />
-            <Field name='password' component={renderField} type='password' label='Password' placeholder='Password' />
+            <Field name='email' component={renderField} type='email' label={textCommon.email} placeholder={textCommon.email} />
+            <Field name='password' component={renderField} type='password' label={textCommon.password} placeholder={textCommon.password} />
             <div>
               <Checkbox
-                label="Remember me"
+                label={textCommon.rememberMe}
                 style={styles.checkRemember.style}
                 labelStyle={styles.checkRemember.labelStyle}
                 iconStyle={styles.checkRemember.iconStyle}
@@ -99,7 +102,7 @@ class LoginForm extends React.Component {
                 disabled={loading}
                 labelPosition="before"
                 icon={loading && <CircularProgress size={20} color={fullWhite} />}
-                label={<b>Login</b>}
+                label={<b>{textCommon.login}</b>}
                 primary={true}
                 type="submit"
               />
@@ -107,6 +110,9 @@ class LoginForm extends React.Component {
           </PaperStyle>
 
           <ButtonDiv>
+            <p>
+              <Link to='/register'>{textCommon.register}</Link>
+            </p>
             <SocialButtonLink to="/" facebook >
               <i className="fa fa-facebook fa-lg"/>
               <ButtonSpan>Log in with Facebook</ButtonSpan>

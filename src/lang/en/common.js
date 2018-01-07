@@ -7,4 +7,8 @@ export const common = {
   ok: 'OK',
   cancel: 'Cancel',
   error: 'Error',
+  email: 'Email',
+  password: 'Password',
+  confirmPassword: 'Confirm Password',
+  rememberMe: 'Remember me',
 }
