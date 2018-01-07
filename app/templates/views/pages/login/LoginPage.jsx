@@ -1,26 +1,51 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import I18n from '../../../lang'
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-const textCommon = I18n.t().common
+import { authActions } from '../../../redux/auth'
+import LoginForm from '../../forms/LoginForm'
+import { AlertDialog } from '../../components'
 
-class LoginPage extends Component {
-  render() {
+class LoginPage extends React.Component {
+  constructor() {
+    super()
+
+    this.handleClearError = this.handleClearError.bind(this)
+  }
+
+  handleClearError() {
+    this.props.authActions.authClearError()
+  }
+
+  handleSubmit(values, dispatch, props) {
+    if(props.isAuth) {
+      alert('User has been Login')
+    } else {
+      dispatch(authActions.auth(values))
+    } 
+  }
+  render () {
+    const { auth } = this.props
     return (
       <div>
-        <h1>Hello React</h1>
-        <h2>Login Page</h2> 
-        <ul>
-          <li><Link to="/">{textCommon.home}</Link></li>
-          <li><Link to="/about">{textCommon.about}</Link></li>
-          <li><Link to="/login">{textCommon.login}</Link></li>
-          <li><Link to="/register">{textCommon.register}</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/not-found">Not Found</Link></li>
-        </ul>
+        { auth.error && <AlertDialog error={auth.error} onClearError={this.handleClearError} /> }
+        {
+          (auth.isAuth) ?
+          <h1>Login Successful</h1>
+          : <LoginForm onSubmit={this.handleSubmit} loading={auth.isLoading} isAuth={auth.isAuth} />
+        }
       </div>
+      
     )
   }
 }
 
-export default LoginPage
+const mapStateToProps = (state, ownProps) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  authActions: bindActionCreators(authActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
