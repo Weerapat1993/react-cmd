@@ -1,29 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { authActions } from '../../../redux/auth'
+import { AuthPropTypes } from './propTypes'
 
 const Authentication = (WrapperComponent) => {
-  class Auth extends Component {
-    static propTypes = {
-      auth: PropTypes.shape({
-        isAuth: PropTypes.bool,
-        isLoading: PropTypes.bool,
-        user: PropTypes.oneOfType([
-          PropTypes.bool,
-          PropTypes.object,
-        ]),
-        error: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.bool,
-        ])
-      }),
-      authLogout: PropTypes.func.isRequired,
-    }
+  const Auth = (props) => (
+    <WrapperComponent {...props} />
+  )
 
-    render () {
-      return <WrapperComponent {...this.props} />
-    }
+  Auth.propTypes = {
+    auth: AuthPropTypes.auth.isRequired,
+    authLogout: PropTypes.func.isRequired,
   }
 
   const mapStateToProps = (state, ownProps) => ({

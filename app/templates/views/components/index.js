@@ -1,5 +1,5 @@
 export { default as App } from './App'
-export { Aunthentication } from './Aunthentication'
+export { Aunthentication, AuthPropTypes } from './Aunthentication'
 export { Header } from './Header'
 export { Error404 } from './Errors'
 export { AlertDialog } from './AlertDialog'

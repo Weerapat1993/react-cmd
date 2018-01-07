@@ -17,8 +17,8 @@ import {
   DeviceWallpaper,
   ActionDelete,
 } from 'material-ui/svg-icons'
-import {grey400, grey200, cyan600, white, grey900} from 'material-ui/styles/colors'
-import {typography} from 'material-ui/styles'
+import { grey400, grey200, cyan600, white, grey900 } from 'material-ui/styles/colors'
+import { typography } from 'material-ui/styles'
 
 const UsersList = ({ title, data, fields, linkTo }) => {
   const styles = {

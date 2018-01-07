@@ -18,13 +18,14 @@ import './views/styles/flex.css'
 
 injectTapEventPlugin()
 
-ReactDOM.render(
+const Render = () => (
   <Provider store={configureStore()}>
     <MuiThemeProvider muiTheme={themeDefault}>
       <RouterMiddleware Routes={Routes} />
     </MuiThemeProvider>
   </Provider>
-,document.getElementById('root'))
+)
 
+ReactDOM.render(<Render />, document.getElementById('root'))
 registerServiceWorker()
 `

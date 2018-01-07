@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Field, reduxForm } from 'redux-form'
 import { CircularProgress, Paper, RaisedButton, Checkbox, TextField } from 'material-ui'
@@ -54,46 +55,47 @@ const renderField = (field) => (
       type={field.type}
       hintText={field.label}
       floatingLabelText={field.label}
-      fullWidth={true}
+      fullWidth
       autoComplete="off"
       errorText={field.meta.touched && field.meta.error && field.meta.error }
     />
   </div>
 )
 
-class RegisterForm extends React.Component {
-  render() {
-    const { handleSubmit, loading } = this.props;
-    return (
-      <form onSubmit={handleSubmit}>
-        <LoginContainer>
-          <PaperStyle>
-            <h2>Registeration</h2>
-            <Field name='email' component={renderField} type='email' label={textCommon.email} placeholder={textCommon.email} />
-            <Field name='password' component={renderField} type='password' label={textCommon.password} placeholder={textCommon.password} />
-            <Field name='password_confirmation' component={renderField} type='password' label={textCommon.confirmPassword} placeholder={textCommon.confirmPassword} />
-            <div>
-              <Checkbox
-                label={textCommon.rememberMe}
-                style={styles.checkRemember.style}
-                labelStyle={styles.checkRemember.labelStyle}
-                iconStyle={styles.checkRemember.iconStyle}
-              />
+let RegisterForm = ({ handleSubmit, loading }) => (
+  <form onSubmit={handleSubmit}>
+    <LoginContainer>
+      <PaperStyle>
+        <h2>Registeration</h2>
+        <Field name='name' component={renderField} type='name' label={textCommon.name} placeholder={textCommon.email} />
+        <Field name='email' component={renderField} type='email' label={textCommon.email} placeholder={textCommon.email} />
+        <Field name='password' component={renderField} type='password' label={textCommon.password} placeholder={textCommon.password} />
+        <Field name='password_confirmation' component={renderField} type='password' label={textCommon.confirmPassword} placeholder={textCommon.confirmPassword} />
+        <div>
+          <Checkbox
+            label={textCommon.rememberMe}
+            style={styles.checkRemember.style}
+            labelStyle={styles.checkRemember.labelStyle}
+            iconStyle={styles.checkRemember.iconStyle}
+          />
 
-              <LoginButton 
-                disabled={loading}
-                labelPosition="before"
-                icon={loading && <CircularProgress size={20} color={fullWhite} />}
-                label={<b>{textCommon.register}</b>}
-                primary={true}
-                type="submit"
-              />
-            </div>
-          </PaperStyle>
-        </LoginContainer>
-      </form>
-    );
-  }
+          <LoginButton 
+            disabled={loading}
+            labelPosition="before"
+            icon={loading && <CircularProgress size={20} color={fullWhite} />}
+            label={<b>{textCommon.register}</b>}
+            primary
+            type="submit"
+          />
+        </div>
+      </PaperStyle>
+    </LoginContainer>
+  </form>
+)
+
+RegisterForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 }
 
 // Decorate the form component

@@ -71,6 +71,7 @@ class Users extends Component {
           {
             users.isFetching ? 
               <TextCenter>
+                <br />
                 <CircularProgress size={120} />
               </TextCenter>  
             : <UsersTable 

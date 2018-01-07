@@ -11,11 +11,12 @@ import registerServiceWorker from './registerServiceWorker'
 import './views/styles/styles.css'
 import './views/styles/flex.css'
 
-ReactDOM.render(
-  <Provider store={configureStore()}>
+const Render = () => (
+  Provider store={configureStore()}>
     <RouterMiddleware Routes={Routes} />
   </Provider>
-,document.getElementById('root'))
+)
 
+ReactDOM.render(<Render />, document.getElementById('root'))
 registerServiceWorker()
 `

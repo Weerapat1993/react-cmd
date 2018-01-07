@@ -1,4 +1,5 @@
 export const common = {
+  name: 'Name',
   home: 'Home',
   about: 'About',
   login: 'Login',
