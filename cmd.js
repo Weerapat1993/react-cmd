@@ -2,13 +2,14 @@
 
 const program = require('commander')
 const packageJson = require('./package.json')
+const { CMD_NAME } = require('./app/config')
 const {
   Install,
   MakeRedux,
   MakeComponent,
   MakeFeature,
 } = require('./app')
-const CMD_NAME = 'cmd'
+
 let cmdValue
 let envValue
 
