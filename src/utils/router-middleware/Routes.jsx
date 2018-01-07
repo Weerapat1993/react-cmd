@@ -24,11 +24,11 @@ export const PublicRoute = ({component: Component, authed, ...rest}) => {
   )
 }
 
-export const AdminRoute = ({component: Component, authed, role_id, ...rest}) => {
+export const AdminRoute = ({component: Component, authed, authUser, ...rest}) => {
   return (
     <Route
       {...rest}
-      render={(props) => authed && role_id === 1
+      render={(props) => authed && authUser.role_id === 1
         ? <Component {...props} />
         : <Redirect to={{pathname: PATH_AUTH_LOGIN, state: {from: props.location}}} />}
     />

@@ -40,7 +40,7 @@ class RouterMiddleware extends Component {
     if(!jwt) {
       return (
         <Router>
-          <Routes isAuth={auth.isAuth} />
+          <Routes isAuth={auth.isAuth} authUser={auth.user} />
         </Router>
       )
     } else {
