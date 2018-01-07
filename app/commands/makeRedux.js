@@ -1,8 +1,8 @@
 const Case = require('case')
 const { MakeFile } = require('../utils')
 
-// Make Command
-const make = (cmd, env) => {
+// Make Redux Command
+const makeRedux = (cmd, env) => {
   const file = new MakeFile(cmd, env)
   const envCamelCase = Case.camel(env)
   const envUpperCase = Case.upper(env)
@@ -116,4 +116,4 @@ export { ${envCamelCase}Actions }
     )
 }
 
-module.exports = make
+module.exports = makeRedux

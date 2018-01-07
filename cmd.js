@@ -5,6 +5,8 @@ const packageJson = require('./package.json')
 const {
   Install,
   MakeRedux,
+  MakeComponent,
+  MakeFeature,
 } = require('./app')
 const CMD_NAME = 'cmd'
 let cmdValue
@@ -42,6 +44,12 @@ if (typeof cmdValue === 'undefined') {
 switch(cmdValue) {
   case 'make:redux':
     MakeRedux(cmdValue, envValue)
+    break
+  case 'make:component':
+    MakeComponent(cmdValue, envValue)
+    break
+  case 'make:feature':
+    MakeFeature(cmdValue, envValue)
     break
   case 'install':
     Install(cmdValue, envValue)

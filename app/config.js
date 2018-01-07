@@ -1,1 +1,2 @@
-export const FILE_TYPE = 'jsx'
+exports.FILE_TYPE = 'jsx'
+

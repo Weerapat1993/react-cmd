@@ -5,6 +5,7 @@ const Install = (cmd, env) => {
   const file = new MakeFile(cmd, env)
   
   file
+    .createDirectory('')
     .copyFolderTemplate('/config', '/config')
     .copyFolderTemplate('/redux', '/redux')
     .copyFolderTemplate('/utils', '/utils')
