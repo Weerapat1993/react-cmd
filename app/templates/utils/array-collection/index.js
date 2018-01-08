@@ -1,3 +1,10 @@
 import ArrayCollection from './arrayCollection'
-
-export { ArrayCollection }
+import ObjectCollection from './ObjectCollection'
+import { ModelObject, ModelArray } from './Model'
+ 
+export {
+  ModelObject,
+  ModelArray,
+  ArrayCollection, 
+  ObjectCollection,
+}

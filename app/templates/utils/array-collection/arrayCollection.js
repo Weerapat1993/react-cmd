@@ -1,9 +1,9 @@
-// Class Collection
-class Collection {
+// Array Collection
+class ArrayCollection {
   /**
    * Build Array Collection
    * ```javascript
-   * const Collection = new Collection([], 'primaryKey')
+   * const Collection = new ArrayCollection([], 'primaryKey')
    * ```
    * @param {[]} data
    * @param {'String'} primaryKey
@@ -333,11 +333,11 @@ class Collection {
    * @return this
    */
   merge(array) {
-    const dataPrimaryKey = new Collection(array, this.primaryKey).get(this.primaryKey)
+    const dataPrimaryKey = new ArrayCollection(array, this.primaryKey).get(this.primaryKey)
     const oldData = this.whereNotIn(this.primaryKey,dataPrimaryKey).get()
     this.data = oldData.concat(array)
     return this    
   }
 }
 
-export default Collection
+export default ArrayCollection

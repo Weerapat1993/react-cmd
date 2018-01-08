@@ -1,8 +1,6 @@
-import { ArrayCollection } from '../utils'
-
-const Model = (data, primaryKey) => new ArrayCollection(data, primaryKey)
+import { ModelArray } from '../utils'
 
 // Models
-export const User = (data) => Model(data, 'id')
-export const Category = (data) => Model(data, 'id')
-export const Product = (data) => Model(data, 'id')
+export const User = (data) => ModelArray(data, 'id')
+export const Category = (data) => ModelArray(data, 'id')
+export const Product = (data) => ModelArray(data, 'id')
