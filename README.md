@@ -1,17 +1,14 @@
-# React Command
+# React Command Starter Kit
 
 ### CLI for React applications based on the [create-react-app](https://github.com/facebookincubator/create-react-app) project.
 
 ### Quick Overview
 
 ```linux
+$ npm install -g react-cmd
 $ create-react-app my-app
-```
-
-Copy folder `app` in this project
-
-```linux
-$ npm run dir
+$ cd my-app
+$ react-cmd install
 $ npm start
 ```
 

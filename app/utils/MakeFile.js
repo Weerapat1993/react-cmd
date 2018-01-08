@@ -1,6 +1,7 @@
 const fs = require('fs')
 const fse = require('fs-extra')
 const path = require('path')
+const cmd = require('node-cmd')
 const Log = require('./Log')
 const srcPath = (pathName, pwd) => `${pwd}/src${pathName}`
 const templatePath = (pathName, pwd) => `/usr/local/lib/node_modules/react-cmd/app/templates${pathName}`
@@ -18,7 +19,7 @@ class MakeFile extends Log {
     if (!fs.existsSync(dir)){
       fs.mkdirSync(dir)
       if(!hideLog) {
-        this.success(`create directory ${dir}`)
+        this.success(`create directory ./src${pathName}`)
       }
     }
     return this
@@ -29,9 +30,9 @@ class MakeFile extends Log {
     const dir = srcPath(pathName, this.pwd)
     if (!fs.existsSync(dir)) {
       fs.writeFileSync(dir, text)
-      this.success(`create file ${dir} success.`)
+      this.success(`create file ./src${pathName} success.`)
     } else {
-      this.error(`file ${dir} is exists.`)
+      this.error(`file ./src${pathName} is exists.`)
     }
     return this
   }
@@ -42,9 +43,9 @@ class MakeFile extends Log {
     if (!fs.existsSync(dirSrc)) {
       this.createDirectory(pathName, true)
       fse.copySync(dirTemplate, dirSrc);
-      this.success(`copy folder ${dirTemplate} to ${dirSrc} success.`)
+      this.success(`copy folder ${templateName} to ./src${pathName} success.`)
     } else {
-      this.error(`folder ${dirSrc} is exists.`)
+      this.error(`folder ./src${pathName} is exists.`)
     }
     return this
   }
@@ -54,20 +55,24 @@ class MakeFile extends Log {
     const dirSrc = srcPath(pathName, this.pwd)
     if (!fs.existsSync(dirSrc)) {
       fs.copyFileSync(dirTemplate, dirSrc)
-      this.success(`copy file ${dirSrc} success.`)
+      this.success(`copy file ${templateName} to ./src${pathName} success.`)
     } else {
-      this.error(`file ${dirSrc} is exists.`)
+      this.error(`file ./src${pathName} is exists.`)
     }
     return this
   }
 
   removeFolder(pathName) {
     const dirSrc = srcPath(pathName, this.pwd)
-    console.log(dirSrc)
     if (fs.existsSync(dirSrc)) {
       fse.removeSync(dirSrc)
-      this.success(`remove file ${dirSrc} success.`)
+      this.success(`remove file ./src${pathName} success.`)
     }
+    return this
+  }
+
+  runCommand(commandName) {
+    cmd.run(commandName)
     return this
   }
 }

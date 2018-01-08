@@ -9,6 +9,15 @@ const Install = (cmd, env = 'material-ui', pwd) => {
   const file = new MakeFile(cmd, env, pwd)
   
   file
+    .runCommand(
+      `
+        npm install -S redux react-redux redux-thunk redux-mock-store redux-form array-collection axios prop-types styled-components lodash
+        npm install -S material-ui react-tap-event-plugin redux-form-material-ui
+        npm install -S react-router-dom
+        npm install -D nock redux-mock-store redux-logger
+        npm install
+      `
+    )
     .removeFolder('')
     .createDirectory('')
     .copyFolderTemplate('/config', '/config')
