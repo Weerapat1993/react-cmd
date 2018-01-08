@@ -39,11 +39,6 @@ program.on('--help', function(){
 
 program.parse(process.argv)
 
-if (typeof cmdValue === 'undefined') {
-   console.error('no command given!')
-   process.exit(1)
-}
-
 switch(cmdValue) {
   case 'make:redux':
     MakeRedux(cmdValue, envValue)
@@ -61,6 +56,8 @@ switch(cmdValue) {
     Install(cmdValue, envValue)
     break
   default:
-    console.log('command:', cmdValue, 'is not found.')
+    console.log('')
+    console.log('  command:', cmdValue, 'is not found.')
+    program.help()
 }
 
