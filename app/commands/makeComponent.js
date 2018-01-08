@@ -3,8 +3,8 @@ const { MakeFile, Log } = require('../utils')
 const { FILE_TYPE } = require('../config')
 
 // Make Component Command
-const makeComponent = (cmd, env) => {
-  const file = new MakeFile(cmd, env)
+const makeComponent = (cmd, env, pwd) => {
+  const file = new MakeFile(cmd, env, pwd)
   const log = new Log()
   const envPascalCase = Case.pascal(env)
 

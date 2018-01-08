@@ -2,18 +2,19 @@ const fs = require('fs')
 const fse = require('fs-extra')
 const path = require('path')
 const Log = require('./Log')
-const srcPath = (pathName) => path.join(__dirname, `../../src${pathName}`)
-const templatePath = (pathName) => path.join(__dirname, `../templates${pathName}`)
+const srcPath = (pathName, pwd) => `${pwd}/src${pathName}`
+const templatePath = (pathName, pwd) => `/usr/local/lib/node_modules/react-cmd/app/templates${pathName}`
 
 class MakeFile extends Log {
-  constructor(cmd, env) {
+  constructor(cmd, env, pwd) {
     super()
     this.cmd = cmd
     this.env = env || null
+    this.pwd = pwd
   }
 
   createDirectory(pathName, hideLog) {
-    const dir = srcPath(pathName)
+    const dir = srcPath(pathName, this.pwd)
     if (!fs.existsSync(dir)){
       fs.mkdirSync(dir)
       if(!hideLog) {
@@ -25,7 +26,7 @@ class MakeFile extends Log {
   
 
   createFile(pathName, text) {
-    const dir = srcPath(pathName)
+    const dir = srcPath(pathName, this.pwd)
     if (!fs.existsSync(dir)) {
       fs.writeFileSync(dir, text)
       this.success(`create file ${dir} success.`)
@@ -36,8 +37,8 @@ class MakeFile extends Log {
   }
 
   copyFolderTemplate(templateName, pathName) {
-    const dirTemplate = templatePath(templateName)
-    const dirSrc = srcPath(pathName)
+    const dirTemplate = templatePath(templateName, this.pwd)
+    const dirSrc = srcPath(pathName, this.pwd)
     if (!fs.existsSync(dirSrc)) {
       this.createDirectory(pathName, true)
       fse.copySync(dirTemplate, dirSrc);
@@ -49,8 +50,8 @@ class MakeFile extends Log {
   }
 
   copyFile(templateName, pathName) {
-    const dirTemplate = templatePath(templateName)
-    const dirSrc = srcPath(pathName)
+    const dirTemplate = templatePath(templateName, this.pwd)
+    const dirSrc = srcPath(pathName, this.pwd)
     if (!fs.existsSync(dirSrc)) {
       fs.copyFileSync(dirTemplate, dirSrc)
       this.success(`copy file ${dirSrc} success.`)
@@ -61,12 +62,11 @@ class MakeFile extends Log {
   }
 
   removeFolder(pathName) {
-    const dirSrc = srcPath(pathName)
+    const dirSrc = srcPath(pathName, this.pwd)
+    console.log(dirSrc)
     if (fs.existsSync(dirSrc)) {
       fse.removeSync(dirSrc)
       this.success(`remove file ${dirSrc} success.`)
-    } else {
-      this.error(`file ${dirSrc} is not exists.`)
     }
     return this
   }

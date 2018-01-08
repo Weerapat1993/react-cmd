@@ -3,8 +3,8 @@ const { MakeFile } = require('../utils')
 const { FILE_TYPE } = require('../config')
 
 // Make Redux Command
-const makeRedux = (cmd, env) => {
-  const file = new MakeFile(cmd, env)
+const makeRedux = (cmd, env, pwd) => {
+  const file = new MakeFile(cmd, env, pwd)
   const envPascalCase = Case.pascal(env)
   const envKebab = Case.kebab(env)
   file

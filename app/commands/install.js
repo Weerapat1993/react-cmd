@@ -1,12 +1,12 @@
 const { MakeFile } = require('../utils')
 
 // Make Command
-const Install = (cmd, env = 'material-ui') => {
+const Install = (cmd, env = 'material-ui', pwd) => {
   console.log('')
   console.log('Installing ... React Starter Kit [Theme]:', env)
   console.log('')
   const Theme = require(`../themes/${env}`)
-  const file = new MakeFile(cmd, env)
+  const file = new MakeFile(cmd, env, pwd)
   
   file
     .removeFolder('')
