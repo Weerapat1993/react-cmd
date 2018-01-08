@@ -6,6 +6,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu'
 import { white } from 'material-ui/styles/colors'
 import BadgeIcon from './BadgeIcon'
 import LinkIcon from './LinkIcon'
+import pkgJson from '../../../../package.json'
 
 import { 
   AppBar, 
@@ -47,7 +48,7 @@ class Header extends Component {
         <div>
             <AppBar
               style={{...styles, ...style.appBar}}
-              title={'Title'}
+              title={`React Starter Kit Version ${pkgJson.version}`}
               iconElementLeft={
                   <IconButton style={style.menuButton} onClick={handleChangeRequestNavDrawer}>
                     <Menu color={white} />

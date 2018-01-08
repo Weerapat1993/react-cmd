@@ -147,9 +147,9 @@ class ArrayCollection {
   whereIn(field, keyArray) {
     let collect = []
     let array
-    keyArray.map((key) => {
+    keyArray.forEach((key) => {
       array = this.data.filter((item) => item[field] === key)
-      array.map(obj => {
+      array.forEach(obj => {
         collect.push(obj)
       })
     })
