@@ -73,11 +73,8 @@ export default connect(
 )(${envPascalCase}Container)
 `
 )
-  log.default('')
-  log.default('Please add text info file ./src/views/features/index.js')
-  log.default('')
-  log.success(`export { ${envPascalCase}Container } from './${envCamelCase}'`)
-  log.default('')
+  log.default('\nPlease add text info file ./src/views/features/index.js\n')
+  log.success(`export { ${envPascalCase}Container } from './${envCamelCase}'\n`)
 }
 
 module.exports = makeFeature

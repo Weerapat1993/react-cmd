@@ -72,7 +72,14 @@ class MakeFile extends Log {
   }
 
   runCommand(commandName) {
-    cmd.run(commandName)
+    this.default('\n  Installing Node Modules ...\n')
+    cmd.get(commandName, (err, data, stderr) => {
+      if (!err) {
+         this.success('the node-cmd cloned dir contains these files :\n\n', data)
+      } else {
+         this.error('error', err)
+      }
+    })
     return this
   }
 }

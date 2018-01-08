@@ -44,12 +44,8 @@ ${envPascalCase}.defaultProps = {
 export default ${envPascalCase}
 `
 )
-
-    log.default('')
-    log.default('Please add text info file ./src/views/components/index.js')
-    log.default('')
-    log.success(`export { ${envPascalCase} } from './${envPascalCase}'`)
-    log.default('')
+    log.default('\nPlease add text info file ./src/views/components/index.js\n')
+    log.success(`export { ${envPascalCase} } from './${envPascalCase}'\n`)
   }
 }
 
