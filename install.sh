@@ -16,8 +16,5 @@ npm i -D nock redux-mock-store redux-logger
 # Install All Depadencies
 npm i
 
-# Remove Folder src
-rm -rf ./src
-
 # Node Commander
 node cmd install material-ui

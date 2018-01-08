@@ -59,6 +59,17 @@ class MakeFile extends Log {
     }
     return this
   }
+
+  removeFolder(pathName) {
+    const dirSrc = srcPath(pathName)
+    if (fs.existsSync(dirSrc)) {
+      fse.removeSync(dirSrc)
+      this.success(`remove file ${dirSrc} success.`)
+    } else {
+      this.error(`file ${dirSrc} is not exists.`)
+    }
+    return this
+  }
 }
 
 module.exports = MakeFile

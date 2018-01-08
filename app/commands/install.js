@@ -9,6 +9,7 @@ const Install = (cmd, env = 'material-ui') => {
   const file = new MakeFile(cmd, env)
   
   file
+    .removeFolder('')
     .createDirectory('')
     .copyFolderTemplate('/config', '/config')
     .copyFolderTemplate('/redux', '/redux')
