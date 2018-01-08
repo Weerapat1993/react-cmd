@@ -4,8 +4,15 @@
 
 ### Quick Overview
 
+
+**Install Command**
+
 ```linux
 $ npm install -g react-cmd
+```
+
+**Create React New Project**
+```linux
 $ create-react-app my-app
 $ cd my-app
 $ react-cmd install
