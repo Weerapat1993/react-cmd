@@ -11,7 +11,7 @@ const Install = (cmd, env = 'material-ui', pwd) => {
   file
     .runCommand(
       `
-        npm install -S redux react-redux redux-thunk redux-mock-store redux-form array-collection axios prop-types styled-components lodash
+        npm install -S redux react-redux redux-thunk redux-mock-store redux-form array-collection axios prop-types styled-components lodash case
         npm install -S material-ui react-tap-event-plugin redux-form-material-ui
         npm install -S react-router-dom
         npm install -D nock redux-mock-store redux-logger
@@ -27,6 +27,7 @@ const Install = (cmd, env = 'material-ui', pwd) => {
     .copyFolderTemplate('/lang', '/lang')
     .createFile('/index.js', Theme)
     .copyFile('/registerServiceWorker.js', '/registerServiceWorker.js')
+    .copyFile('/README.md', '/README.md')
 }
 
 module.exports = Install
