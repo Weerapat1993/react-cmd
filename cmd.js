@@ -20,10 +20,10 @@ cmd.get('pwd', (err, data, stderr) => {
   pwd = data.replace(new RegExp('\n','g'), '')
   program
     .version(packageJson.version)
-    .arguments('<cmd> [env]')
-    .action((cmd, env) => {
-      cmdValue = cmd
-      envValue = env
+    .arguments('<command> [name]')
+    .action((command, name) => {
+      cmdValue = command
+      envValue = name
     })
 
   // must be before .parse() since
@@ -33,11 +33,11 @@ cmd.get('pwd', (err, data, stderr) => {
     console.log('')
     console.log('  Examples:')
     console.log('')
-    console.log(`    node ${CMD_NAME} install`)
-    console.log(`    node ${CMD_NAME} make:redux [name]`)
-    console.log(`    node ${CMD_NAME} make:component [name]`)
-    console.log(`    node ${CMD_NAME} make:feature [name]`)
-    console.log(`    node ${CMD_NAME} make:page [name]`)
+    console.log(`    ${CMD_NAME} install`)
+    console.log(`    ${CMD_NAME} make:redux [name]`)
+    console.log(`    ${CMD_NAME} make:component [name]`)
+    console.log(`    ${CMD_NAME} make:feature [name]`)
+    console.log(`    ${CMD_NAME} make:page [name]`)
     console.log('')
   })
 

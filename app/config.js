@@ -1,3 +1,3 @@
 exports.FILE_TYPE = 'jsx'
-exports.CMD_NAME = 'cmd'
+exports.CMD_NAME = 'react-cmd'
 
