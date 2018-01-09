@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 // Material UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -20,7 +21,9 @@ injectTapEventPlugin()
 const Render = () => (
   <Provider store={configureStore()}>
     <MuiThemeProvider muiTheme={themeDefault}>
-      <RouterMiddleware Routes={Routes} />
+      <Router>
+        <RouterMiddleware Routes={Routes} />
+      </Router>  
     </MuiThemeProvider>
   </Provider>
 )
