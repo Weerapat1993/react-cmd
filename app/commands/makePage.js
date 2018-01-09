@@ -8,6 +8,9 @@ const makeRedux = (cmd, env, pwd) => {
   const envPascalCase = Case.pascal(env)
   const envKebab = Case.kebab(env)
   file
+    .createDirectory('')
+    .createDirectory('/views')
+    .createDirectory('/views/pages')
     .createDirectory(`/views/pages/${envKebab}`)
     .createFile(`/views/pages/${envKebab}/index.js`,
 `import ${envPascalCase}Page from './${envPascalCase}Page'

@@ -8,6 +8,7 @@ const makeRedux = (cmd, env, pwd) => {
   const envUpperCase = Case.upper(env)
   const envPascalCase = Case.pascal(env)
   file
+    .createDirectory('')
     .createDirectory(`/redux/`)
     .createDirectory(`/redux/${envCamelCase}/`)
     // Actions

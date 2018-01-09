@@ -10,6 +10,9 @@ const makeFeature = (cmd, env, pwd) => {
   const envPascalCase = Case.pascal(env)
 
   file
+    .createDirectory('')
+    .createDirectory('/views')
+    .createDirectory('/views/features')
     .createDirectory(`/views/features/${envCamelCase}`)
     .createFile(`/views/features/${envCamelCase}/index.js`,
 `import ${envPascalCase}Container from './${envPascalCase}Container'

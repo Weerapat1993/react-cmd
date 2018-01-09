@@ -14,6 +14,9 @@ const makeComponent = (cmd, env, pwd) => {
       break
     default:
     file
+      .createDirectory('')
+      .createDirectory('/views')
+      .createDirectory('/views/components')
       .createDirectory(`/views/components/${envPascalCase}`)
       .createFile(`/views/components/${envPascalCase}/index.js`,
 `import ${envPascalCase} from './${envPascalCase}'
