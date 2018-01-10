@@ -34,11 +34,13 @@ class RouterMiddleware extends Component {
   }
 
   render() {
-    const { auth, Routes } = this.props
+    const { auth, Routes, Router } = this.props
     const { jwt } = this.state
     if(!jwt) {
       return (
-        <Routes isAuth={auth.isAuth} authUser={auth.user} />
+        <Router>
+          <Routes isAuth={auth.isAuth} authUser={auth.user} />
+        </Router>
       )
     } else {
       return null
