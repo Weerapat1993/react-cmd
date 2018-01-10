@@ -39,7 +39,7 @@ const DashboardPage = ({ auth, authLogout }) => (
       )
     }
     <Link to="/dashboard/create" >
-      <FloatingActionButton style={styles.floatingActionButton} primary >
+      <FloatingActionButton style={styles.floatingActionButton} secondary >
         <ContentAdd />
       </FloatingActionButton>
     </Link>

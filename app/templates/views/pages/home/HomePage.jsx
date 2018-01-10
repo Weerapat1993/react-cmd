@@ -39,7 +39,7 @@ const HomePage = ({ auth, authLogout }) => (
       )
     }
     <Link to="/home/create" >
-      <FloatingActionButton style={styles.floatingActionButton} primary >
+      <FloatingActionButton style={styles.floatingActionButton} secondary >
         <ContentAdd />
       </FloatingActionButton>
     </Link>
