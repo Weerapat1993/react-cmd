@@ -1,0 +1,30 @@
+{
+  "require": [
+    "nginx",
+    "composer/composer",
+    "mysql"
+  ],
+  "images": [
+    {
+      "containerID": "ed8b61aa3c41",
+      "image": "ba35edae1e72",
+      "command": "\"/bin/sh -c 'apt-get…\"   4 days ago",
+      "status": "Exited (100) 4 days ago",
+      "name": "wonderful_swirles"
+    },
+    {
+      "containerID": "6c329dcb18be",
+      "image": "ba35edae1e72",
+      "command": "\"/bin/sh -c 'apt-get…\"   4 days ago",
+      "status": "Exited (100) 4 days ago",
+      "name": "loving_beaver"
+    },
+    {
+      "containerID": "1707cdabfdcf",
+      "image": "nginx:1.9",
+      "command": "\"nginx -g 'daemon of…\"   4 days ago",
+      "status": "Exited (0) 4 days ago",
+      "name": "start-docker"
+    }
+  ]
+}
